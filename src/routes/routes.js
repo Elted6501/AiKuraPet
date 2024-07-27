@@ -10,15 +10,18 @@ routes.get("/signin", helpers.isNotLoggedIn, (req, res) => res.render("SignInPag
 
 routes.get("/", (req, res) => res.render("homePage"));
 
-routes.get("/historial/:id", helpers.isLoggedIn, (req, res) => res.render("historial"));
+routes.get("/historial/:id", helpers.isLoggedIn, async (req, res) => {
+
+    const pet = await db.collection("pets").doc(req.params.id).get();
+
+    res.render("historial" , { pet: { id: pet.id, ...pet.data() } });
+});
 
 routes.get("/home", helpers.isLoggedIn, async (req, res) => {
 
     const querySnapshot = await db.collection("pets").get();
 
     const pets = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-
-    console.log(pets);
 
     res.render("log", { pets });
 });
