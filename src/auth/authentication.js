@@ -9,10 +9,8 @@ let User = null;
 
 auth.onAuthStateChanged(async user => {
     if (user) {
-        console.log("User has loged in");
         User = user;
     } else {
-        console.log("User is loged out");
         User = null;
     };
 });
@@ -29,8 +27,7 @@ au.post('/signup', async (req, res) => {
                 name: req.body.name,
                 phone: req.body.phone,
                 address: req.body.address,
-                email: req.body.email,
-                password: req.body.password,
+                pets: []
             };
 
             await db.collection("users").add(newUser);
