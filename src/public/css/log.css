@@ -1,0 +1,281 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  background-color: #fff7e8;
+}
+
+.flechaAbajo {
+  height: 30px;
+  width: 30px;
+}
+
+.table-section {
+  max-width: 600px;
+  margin: 40px auto;
+  margin-top: 8%;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  position: relative;
+}
+
+.table-row {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.imgtbl {
+  width: 60%;
+  height: 60%;
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+
+.table-section-aditional {
+  max-width: 600px;
+  margin: 40px auto;
+  margin-top: 3%;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+}
+
+.image-preview {
+  margin-top: 3%;
+  width: 60%;
+  height: 90%;
+  border: 1px solid #000;
+}
+
+.container {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.nameage {
+  position: absolute;
+  left: 425px;
+  bottom: 30%;
+}
+
+.iconsok {
+  margin-top: 50px;
+}
+
+.espacioentretextos {
+  margin-top: 30px;
+}
+
+.btnplus {
+  background-color: #fbcb04;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+  /* Oculta la tabla adicional por defecto */
+}
+
+.btnonemore {
+  background-color: transparent;
+  border: none;
+  /* Sin borde */
+  padding: 0;
+  /* Sin relleno */
+  margin: 0;
+  /* Sin margen */
+  cursor: pointer;
+}
+
+.onemore {
+  height: 30%;
+  width: 30%;
+  margin-left: 129%;
+}
+
+/* Modal (oculto) */
+.modal {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.file-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.file-input {
+  display: none;
+}
+
+.custom-file-label {
+  background-color: #043c6c;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.custom-file-label:hover {
+  background-color: #fbcb04;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.image-preview {
+  max-width: 100%;
+  height: auto;
+  display: none;
+}
+
+/* Contenido del modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 700px;
+  /* Puedes ajustar el tamaño máximo según tus necesidades */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+/* Botón de cerrar */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mapa100 {
+  width: 100%;
+  height: 100%;
+}
+
+.mapa {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  margin-top: 30px;
+}
+
+.btnhistory {
+  background-color: #fbcb04;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.btnhistory:hover {
+  background-color: #043c6c;
+  border: 1px solid #000;
+  color: #fff;
+}
+
+/* Estilos del modal */
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-container label {
+  width: auto;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  justify-self: start; 
+}
+
+.form-container input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.confirm-button {
+  background-color: #043c6c;
+  height: 100%;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.confirm-button:hover {
+  background-color: #fbcb04;
+  border: 1px solid #000;
+  color: #000;
+}

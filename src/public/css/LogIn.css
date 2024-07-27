@@ -1,0 +1,149 @@
+body {
+  background-color: #fff7e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Dosis", sans-serif;
+}
+
+section {
+  background-color: #043c6c;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #ffffff;
+  width: 90%;
+  max-width: 400px;
+  font-family: "Dosis", sans-serif;
+}
+
+.titulo {
+  font-family: "Lobster", sans-serif;
+  font-size: 38px;
+  font-style: normal;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #fbcb04;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.titulobtn {
+  text-decoration: none;
+}
+
+.label {
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  width: 90%;
+  max-width: 250px;
+  height: 40px;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.container input[type="checkbox"] {
+  display: none;
+}
+
+.container .remember-label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 28px;
+  user-select: none;
+  font-size: 18px;
+}
+
+.container .remember-label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+.container input:checked + .remember-label:before {
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.container .remember-label:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked + .remember-label:after {
+  display: block;
+}
+
+.container .remember-label:after {
+  left: 5px;
+  top: 2.2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.ingresar {
+  color: #ffffff;
+}
+
+.logInbtn {
+  background-color: #fbcb04;
+  cursor: pointer;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  max-width: 180px;
+  width: 90px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: large;
+  color: #000000;
+  font-weight: 700;
+  font-family: "Dosis", sans-serif;
+}
+
+.mess {
+  font-size: large;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  section {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .titulo {
+    font-size: 32px;
+  }
+
+  .label,
+  .logInbtn {
+    width: 100%;
+  }
+
+  .logInbtn {
+    height: 45px;
+    font-size: medium;
+  }
+
+  .mess {
+    font-size: medium;
+  }
+}

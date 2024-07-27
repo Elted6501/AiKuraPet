@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historial</title>
+    <link rel="stylesheet" href="css/historial.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="css/Footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <%- include("partials/nav")%>
+
+    <ol class="timeline">
+      <li class="event">
+        <h3 class="event-title">
+          Released on January 13th, 2022
+          <span class="badge">Paquito</span>
+        </h3>
+        <time class="event-time">Released on 14:00 p. m.</time>
+        <p class="event-description">
+          Temperature: 37° Cardiac Frecuency: 108lpm
+        </p>
+      </li>
+      <li class="event">
+        <h3 class="event-title">Released on January 13th, 2022</h3>
+        <time class="event-time">Released on 14:00 p. m.</time>
+        <p class="event-description">
+          Temperature: 37° Cardiac Frecuency: 108lpm
+        </p>
+      </li>
+    </ol>
+
+    <script>
+      // Botón que despliega los botones adicionales
+      var btn = document.querySelector(".btnLogIn");
+      var dropdown = document.getElementById("dropdown");
+      // Cuando el usuario haga clic en el botón, mostrar/ocultar los botones adicionales
+      btn.onclick = function (event) {
+        event.stopPropagation();
+        dropdown.classList.toggle("show");
+      };
+      // Cerrar el dropdown si el usuario hace clic fuera de él
+      window.onclick = function (event) {
+        if (!event.target.matches(".btnLogIn")) {
+          if (dropdown.classList.contains("show")) {
+            dropdown.classList.remove("show");
+          }
+        }
+      };
+    </script>
+
+    <%-include('partials/footer')%>
+  </body>
+</html>

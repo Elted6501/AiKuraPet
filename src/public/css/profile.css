@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  list-style: none;
+  text-decoration: none;
+  justify-content: center;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff7e8;
+  color: #374151;
+  margin: 0;
+  padding: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-group svg {
+  cursor: pointer;
+}
+.form-control {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.edit {
+  margin-left: 50px;
+}
+
+.edit-icon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+
+.input-lg {
+  font-size: 1.25rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.3rem;
+}
+.table-section {
+  position: relative; /* Ensure positioning context for the icon */
+  max-width: 600px;
+  margin: 40px auto;
+  margin-top: 8%;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit {
+  margin: 0;
+}
+
+.edit-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.table-row {
+  display: flex;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: #043c6c;
+  width: 550px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #fbcb04;
+  border: 1px solid #000;
+  color: #000;
+}
