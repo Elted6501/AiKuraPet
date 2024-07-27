@@ -4,18 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
-
     <title>Street View split-map-panes</title>
-
     <link rel="stylesheet" href="css/profile.css" />
     <link rel="stylesheet" href="/css/nav.css" />
     <link rel="stylesheet" href="css/Footer.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
   </head>
-
   <body>
     <%- include("partials/nav")%>
 
@@ -54,16 +50,15 @@
               class="form-control input-lg"
               placeholder="Age"
               tabindex="5"
-              disabled
-            />
+              disabled/>
           </div>
           <div class="form-group">
             <input
-              type="text"
+              type="number"
               name="phonenumber"
               id="phonenumber"
               class="form-control input-lg"
-              placeholder="Phone number"
+              placeholder="Phone Number"
               tabindex="5"
               disabled
             />
@@ -124,11 +119,15 @@
 
       // Limitación en la edad
       ageInput.addEventListener("input", function () {
-        const age = ageInput.value;
-        if (age.length > 2) {
-          ageInput.value = age.slice(0, 2);
-        }
-      });
+    let age = ageInput.value;
+    // Remover la letra 'e' y cualquier otro carácter no numérico
+    age = age.replace(/[^0-9]/g, '');
+    // Limitar la longitud a 2 caracteres
+    if (age.length > 2) {
+      age = age.slice(0, 2);
+    }
+    ageInput.value = age;
+  });
 
       // Acceso a los inputs
       const toggleFormInputs = () => {
@@ -164,12 +163,16 @@
 
       // 10 digitos necesarios en el número telefonico
       phoneNumberInput.addEventListener("input", function () {
-        const phoneNumber = phoneNumberInput.value;
-        if (phoneNumber.length > 10) {
-          alert("Can be only 10 digits");
-          phoneNumberInput.value = phoneNumber.slice(0, 8); // Truncate to 8 digits
-        }
-      });
+    let phoneNumber = phoneNumberInput.value;
+    // Remover la letra 'e' y cualquier otro carácter no numérico
+    phoneNumber = phoneNumber.replace(/[^0-9]/g, '');
+    // Limitar la longitud a 10 caracteres
+    if (phoneNumber.length > 10) {
+      alert("Can be only 10 digits");
+      phoneNumber = phoneNumber.slice(0, 10); // Truncate to 10 digits
+    }
+    phoneNumberInput.value = phoneNumber;
+  });
 
       saveBtn.addEventListener("click", function () {
         const phoneNumber = phoneNumberInput.value;
