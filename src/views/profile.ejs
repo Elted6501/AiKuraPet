@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile</title>
-  <title>Street View split-map-panes</title>
   <link rel="stylesheet" href="/css/profile.css" />
   <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/Footer.css" />
@@ -25,7 +24,7 @@
       </svg>
 
       <div class="table-container">
-        <form action="/profile/edit" method="post" enctype="application/x-www-form-urlencoded" id="edit-form" role="form">
+        <form action="/profile/edit" method="post" enctype="application/x-www-form-urlencoded">
 
           <div class="form-group">
             <input type="text" value="<%= user.name %>" name="name" id="name" class="form-control input-lg"
