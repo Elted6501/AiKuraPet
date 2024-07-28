@@ -17,7 +17,8 @@ postes.post("/add/pet", helpers.isLoggedIn, async (req, res) => {
         weight: req.body.weight,
         idcollar: req.body.idcollar,
         address: req.body.address,
-        image: req.file != undefined ? (await cloudinary.uploader.upload(req.file.path)).url : null
+        image: req.file != undefined ? (await cloudinary.uploader.upload(req.file.path)).url : "/img/perrito.png",
+        iduser: User.uid
     };
 
     if (req.file != undefined) {

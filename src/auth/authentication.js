@@ -27,6 +27,8 @@ au.post('/signup', async (req, res) => {
                 name: req.body.name,
                 phone: req.body.phone,
                 address: req.body.address,
+                email: req.body.email,
+                password: req.body.password,
                 pets: []
             };
 
@@ -59,7 +61,7 @@ au.post('/login', async (req, res) => {
             const errorCode = error.code;
             const errorMessage = error.message;
 
-            res.redirect("/signin");
+            res.redirect("/login");
         });
 
 });

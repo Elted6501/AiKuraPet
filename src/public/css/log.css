@@ -242,7 +242,7 @@ body {
 /* Estilos del modal */
 .form-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; 
+  grid-column: auto;
   gap: 10px;
   margin-top: 20px;
 }
@@ -256,6 +256,12 @@ body {
 }
 
 .form-container input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.form-container select {
   padding: 8px;
   font-size: 14px;
   border: 1px solid #ccc;
