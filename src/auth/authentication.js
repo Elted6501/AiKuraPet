@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateEmail, updatePassword } from "firebase/auth";
 import { db, appfire } from "../firebase.js";
 
 const au = Router();
@@ -27,6 +27,8 @@ au.post('/signup', async (req, res) => {
                 name: req.body.name,
                 phone: req.body.phone,
                 address: req.body.address,
+                email: req.body.email,
+                password: req.body.password,
                 pets: []
             };
 
@@ -59,7 +61,7 @@ au.post('/login', async (req, res) => {
             const errorCode = error.code;
             const errorMessage = error.message;
 
-            res.redirect("/signin");
+            res.redirect("/login");
         });
 
 });
@@ -79,4 +81,21 @@ au.get('/logout', async (req, res) => {
     });
 });
 
-export { au, User };
+async function changeEmail(newEmail) {
+    await updateEmail(auth.currentUser, newEmail,).then(() => {
+        console.log("Email updated!");
+    }).catch((error) => {
+        console.log(error);
+    });
+};
+
+async function changePass(newPass) {
+    await updatePassword(auth.currentUser, newPass).then(() => {
+        console.log("Password updated!");
+    }).catch((error) => {
+        console.log(error);
+    });
+}
+
+
+export { au, User, changeEmail, changePass };

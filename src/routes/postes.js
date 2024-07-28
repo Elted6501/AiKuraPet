@@ -2,7 +2,7 @@ import { Router } from "express";
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs-extra";
 import { db } from "../firebase.js";
-import { User } from "../auth/authentication.js";
+import { changeEmail, changePass, User } from "../auth/authentication.js";
 import helpers from "../auth/helpers.js";
 
 const postes = Router();
@@ -17,7 +17,9 @@ postes.post("/add/pet", helpers.isLoggedIn, async (req, res) => {
         weight: req.body.weight,
         idcollar: req.body.idcollar,
         address: req.body.address,
-        image: req.file != undefined ? (await cloudinary.uploader.upload(req.file.path)).url : null
+        image: req.file != undefined ? (await cloudinary.uploader.upload(req.file.path)).url : "/img/perrito.png",
+        iduser: User.uid,
+        register: []
     };
 
     if (req.file != undefined) {
@@ -48,6 +50,8 @@ postes.post("/edit/pet/:id", helpers.isLoggedIn, async (req, res) => {
 
     const id = req.params.id;
 
+    const pet = await (await db.collection("pets").doc(id).get()).data();
+
     const newDataPet = {
         name: req.body.name,
         specie: req.body.specie,
@@ -56,7 +60,7 @@ postes.post("/edit/pet/:id", helpers.isLoggedIn, async (req, res) => {
         weight: req.body.weight,
         idcollar: req.body.idcollar,
         address: req.body.address,
-        image: req.file != undefined ? (await cloudinary.uploader.upload(req.file.path)).url : null
+        image: req.file != undefined ? (await cloudinary.uploader.upload(req.file.path)).url : pet.image
     };
 
     if (req.file != undefined) {
@@ -70,21 +74,19 @@ postes.post("/edit/pet/:id", helpers.isLoggedIn, async (req, res) => {
 
 postes.post("/profile/edit", helpers.isLoggedIn, async (req, res) => {
 
-    const newUserData = {
-        name: req.body.name,
-        phone: req.body.phone,
-        address: req.body.address
-    };
+    const uid = User.uid;
 
-    let Users = await db.collection("users").get();
+    const user = (await db.collection("users").where("uid", "==", uid).get()).docs[0]
+    
+    await db.collection("users").doc(user.id).update(req.body);
 
-    Users.forEach(async (doc) => {
+    if (req.body.email != user.data().email) {
+        changeEmail(req.body.email);
+    }
 
-        if (doc.data().uid === User.uid) {
-            await db.collection("users").doc(doc.id).update(newUserData);
-        }
-
-    });
+    if (req.body.password != user.data().password) {
+        changePass(req.body.password);
+    }
 
     res.redirect("/profile");
 
