@@ -1,4 +1,5 @@
 import express from "express";
+import "dotenv/config";
 import morgan from "morgan";
 import multer from "multer";
 import path from "path";
@@ -25,9 +26,9 @@ const storage = multer.diskStorage({
 });
 cloudinary.config({
   secure: true,
-  cloud_name: 'dglqsxwon',
-  api_key: '499835227724769',
-  api_secret: 'qxdInVtC6A7MxSrdOO07ovwpGHo',
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET
 });
 
 // Middlewares

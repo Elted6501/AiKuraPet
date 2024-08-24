@@ -11,13 +11,14 @@ postes.post("/add/pet", helpers.isLoggedIn, async (req, res) => {
 
     const newPet = {
         name: req.body.name,
+        age: req.body.age,
         specie: req.body.specie,
         breed: req.body.breed,
-        age: req.body.age,
-        weight: req.body.weight,
         idcollar: req.body.idcollar,
         address: req.body.address,
-        image: req.file != undefined ? (await cloudinary.uploader.upload(req.file.path)).url : "/img/perrito.png",
+        image: req.file != undefined ? (await cloudinary.uploader.upload(req.file.path,
+            { folder: "AiKuraPet" }
+        )).url : cloudinary.url("AiKuraPet/a6am5bef36yq3s13i5rv"),
         iduser: User.uid,
         register: []
     };
@@ -77,8 +78,13 @@ postes.post("/profile/edit", helpers.isLoggedIn, async (req, res) => {
     const uid = User.uid;
 
     const user = (await db.collection("users").where("uid", "==", uid).get()).docs[0]
-    
-    await db.collection("users").doc(user.id).update(req.body);
+
+    try {
+        await db.collection("users").doc(user.id).update(req.body);
+    } catch (error) {
+        console.log(error);
+    }
+
 
     if (req.body.email != user.data().email) {
         changeEmail(req.body.email);
